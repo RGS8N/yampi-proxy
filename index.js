@@ -30,4 +30,8 @@ app.get('/orders', (req, res) => yampiRequest(req, res, '/orders'));
 app.get('/orders/:id', (req, res) => yampiRequest(req, res, `/orders/${req.params.id}`));
 app.get('/products', (req, res) => yampiRequest(req, res, '/products'));
 app.get('/customers', (req, res) => yampiRequest(req, res, '/customers'));
-app.get('/transactions', (req, res) => yampiRequest(req, res, '/transaction
+app.get('/transactions', (req, res) => yampiRequest(req, res, '/transactions'));
+
+app.listen(PORT, () => {
+  console.log(`Proxy rodando em http://localhost:${PORT}`);
+});
