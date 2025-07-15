@@ -11,9 +11,9 @@ const TOKEN = process.env.YAMPI_TOKEN;
 
 const yampiRequest = async (req, res, path) => {
   try {
-    const response = await axios.get(\`\${YAMPI_BASE_URL}\${path}\`, {
+    const response = await axios.get(`${YAMPI_BASE_URL}${path}`, {
       headers: {
-        Authorization: \`Bearer \${TOKEN}\`
+        Authorization: `Bearer ${TOKEN}`
       },
       params: req.query
     });
@@ -27,11 +27,7 @@ const yampiRequest = async (req, res, path) => {
 };
 
 app.get('/orders', (req, res) => yampiRequest(req, res, '/orders'));
-app.get('/orders/:id', (req, res) => yampiRequest(req, res, \`/orders/\${req.params.id}\`));
+app.get('/orders/:id', (req, res) => yampiRequest(req, res, `/orders/${req.params.id}`));
 app.get('/products', (req, res) => yampiRequest(req, res, '/products'));
 app.get('/customers', (req, res) => yampiRequest(req, res, '/customers'));
-app.get('/transactions', (req, res) => yampiRequest(req, res, '/transactions'));
-
-app.listen(PORT, () => {
-  console.log(\`Proxy rodando em http://localhost:\${PORT}\`);
-});
+app.get('/transactions', (req, res) => yampiRequest(req, res, '/transaction
